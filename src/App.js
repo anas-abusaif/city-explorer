@@ -1,5 +1,7 @@
 import axios from 'axios';
 import react from 'react';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import { Container, Fluid, Col, Row } from 'react-bootstrap';
 
 class App extends react.Component {
   constructor(props) {
@@ -38,7 +40,14 @@ class App extends react.Component {
         <h2>City Name: {this.state.cityName}</h2>
         <h2>Latitude: {this.state.lat}</h2>
         <h2>Longitude: {this.state.lon}</h2>
-
+        <br />
+        <Container>
+          <Row>
+            <Col xs={1}>
+              <img src={`https://maps.locationiq.com/v3/staticmap?key=pk.e55482fdd20d00376e66ecdf5983b8a0&center=${this.state.lat},${this.state.lon}&zoom=1-18`} alt="" Fluid />
+            </Col>
+          </Row>
+        </Container>
       </>
     )
   }
