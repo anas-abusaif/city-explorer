@@ -29,7 +29,7 @@ class App extends react.Component {
     }
     );
 
-    axios.get(`http://localhost:${process.env.REACT_APP_LocalHost}/weather?searchQuery=${e.target.city.value}`).then(recivedData => {
+    axios.get(`https://anas-weather-api.herokuapp.com/weather?searchQuery=${e.target.city.value}`).then(recivedData => {
     console.log(recivedData.data);  
     this.setState({
         weatherStatus: recivedData.data
