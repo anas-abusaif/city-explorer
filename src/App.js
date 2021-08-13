@@ -11,7 +11,8 @@ class App extends react.Component {
       lat: 0,
       lon: 0,
       cityName: "",
-      weatherStatus: []
+      weatherStatus: [],
+      subject:''
     }
   }
 
@@ -23,7 +24,8 @@ class App extends react.Component {
       this.setState({
         lat: response.lat,
         lon: response.lon,
-        cityName: response.display_name
+        cityName: response.display_name,
+        subject:e.target.city.value
       })
 
     }
@@ -59,8 +61,8 @@ class App extends react.Component {
         <h2>weather status in {this.e.target.city.value}</h2>
         <Weather weatherStatus={this.state.weatherStatus} />
         <br />
-        <h2>most popular movies in {this.e.target.value}</h2>
-        <Movies subject={this.e.target.value} />
+        <h2>most popular movies in {this.state.subject}</h2>
+        <Movies subject={this.state.subject} />
       </>
     )
   }
