@@ -3,7 +3,7 @@ import react from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Container, Col, Row } from 'react-bootstrap';
 import Weather from './components/Weather'
-
+import Movies from './components/Movies';
 class App extends react.Component {
   constructor(props) {
     super(props);
@@ -30,8 +30,8 @@ class App extends react.Component {
     );
 
     axios.get(`https://anas-weather-api.herokuapp.com/weather?searchQuery=${e.target.city.value}`).then(recivedData => {
-    console.log(recivedData.data);  
-    this.setState({
+      console.log(recivedData.data);
+      this.setState({
         weatherStatus: recivedData.data
       })
     })
@@ -56,8 +56,11 @@ class App extends react.Component {
             </Col>
           </Row>
         </Container>
-        <Weather weatherStatus={this.state.weatherStatus}/>
-
+        <h2>weather status in {this.e.target.city.value}</h2>
+        <Weather weatherStatus={this.state.weatherStatus} />
+        <br />
+        <h2>most popular movies in {this.e.target.value}</h2>
+        <Movies subject={this.e.target.value} />
       </>
     )
   }

@@ -8,8 +8,9 @@ class Weather extends react.Component {
           return (
             <>
               <br />
-              <h2>{element.date}</h2>
-              <h2>{element.description}</h2>
+              
+              <h3>{element.date}</h3>
+              <h3>{element.description}</h3>
             </>
           )
         })}
