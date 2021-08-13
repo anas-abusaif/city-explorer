@@ -58,7 +58,7 @@ class App extends react.Component {
             </Col>
           </Row>
         </Container>
-        <h2>weather status in {this.e.target.city.value}</h2>
+        <h2>weather status in {this.state.subject}</h2>
         <Weather weatherStatus={this.state.weatherStatus} />
         <br />
         <h2>most popular movies in {this.state.subject}</h2>
