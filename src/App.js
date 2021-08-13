@@ -20,7 +20,7 @@ class App extends react.Component {
   submitHandler = (e) => {
     e.preventDefault();
     axios.get(`https://eu1.locationiq.com/v1/search.php?key=pk.e55482fdd20d00376e66ecdf5983b8a0&q=${e.target.city.value}&format=json`).then((recivedData) => {
-      let response = recivedData.data[0];
+      let response = recivedData.data [ 0 ];
       this.setState({
         lat: response.lat,
         lon: response.lon,
