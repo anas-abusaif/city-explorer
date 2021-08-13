@@ -12,7 +12,8 @@ class App extends react.Component {
       lon: 0,
       cityName: "",
       weatherStatus: [],
-      subject:''
+      subject: '',
+      moviesData: []
     }
   }
 
@@ -20,22 +21,27 @@ class App extends react.Component {
     e.preventDefault();
     axios.get(`https://eu1.locationiq.com/v1/search.php?key=pk.e55482fdd20d00376e66ecdf5983b8a0&q=${e.target.city.value}&format=json`).then((recivedData) => {
       let response = recivedData.data[0];
-
       this.setState({
         lat: response.lat,
         lon: response.lon,
         cityName: response.display_name,
-        subject:e.target.city.value
+        subject: e.target.city.value
       })
-
     }
     );
 
     axios.get(`https://anas-weather-api.herokuapp.com/weather?searchQuery=${e.target.city.value}`).then(recivedData => {
-      console.log(recivedData.data);
       this.setState({
         weatherStatus: recivedData.data
       })
+    })
+
+    axios.get(`https://anas-weather-api.herokuapp.com/movies?searchQuery=${e.target.city.value}`).then(data => {
+      console.log(this.state.moviesData)
+      this.setState({
+        moviesData: data.data
+      })
+      console.log(this.state.moviesData)
     })
 
   }
@@ -62,7 +68,8 @@ class App extends react.Component {
         <Weather weatherStatus={this.state.weatherStatus} />
         <br />
         <h2>most popular movies in {this.state.subject}</h2>
-        <Movies subject={this.state.subject} />
+
+        <Movies moviesData={this.state.moviesData} />
       </>
     )
   }
