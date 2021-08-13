@@ -17,7 +17,7 @@ class App extends react.Component {
 
   submitHandler = (e) => {
     e.preventDefault();
-    axios.get(`https://eu1.locationiq.com/v1/search.php?key=${process.env.REACT_APP_LocationKey}&q=${e.target.city.value}&format=json`).then((recivedData) => {
+    axios.get(`https://eu1.locationiq.com/v1/search.php?key=pk.e55482fdd20d00376e66ecdf5983b8a0&q=${e.target.city.value}&format=json`).then((recivedData) => {
       let response = recivedData.data[0];
 
       this.setState({
@@ -52,7 +52,7 @@ class App extends react.Component {
         <Container>
           <Row>
             <Col xs={1}>
-              <img src={`https://maps.locationiq.com/v3/staticmap?key=${process.env.REACT_APP_LocationKey}&center=${this.state.lat},${this.state.lon}&zoom=1-18`} alt="" />
+              <img src={`https://maps.locationiq.com/v3/staticmap?key=pk.e55482fdd20d00376e66ecdf5983b8a0&center=${this.state.lat},${this.state.lon}&zoom=1-18`} alt="" />
             </Col>
           </Row>
         </Container>
